@@ -6,9 +6,9 @@
       secondaryTitle=" et devenir propriétaire de votre appartement<br>
 à Saint-Brice-sous-Forêt&nbsp;! "
     ></Title>
-    <form method="post" class="max_content_secondary w90">
+    <form @submit="onSubmit" class="max_content_secondary w90">
       <div class="flex_field">
-        <input type="text" placeholder="Nom*" required />
+        <input v-model="name" type="text" placeholder="Nom*" required />
         <input type="text" placeholder="Prénom*" required />
         <input type="text" placeholder="E-mail*" required />
         <input
@@ -74,6 +74,73 @@ export default {
   name: "ContactForm",
   components: {
     Title,
+  },
+  data() {
+    return {
+      name: "",
+    };
+  },
+  methods: {
+    async onSubmit(e) {
+      e.preventDefault();
+    //   const requestOptions = {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({
+    //       programIds: [640302757],
+    //       MediaReference: 1867390035,
+    //       isClaimedLead: false,
+    //       needValidation: false,
+    //       address: "1 rue de France",
+    //       city: "Paris",
+    //       postal_code: "75001",
+    //       country: "AF",
+    //       lastname: "La Taupe",
+    //       firstname: this.name,
+    //       company: "google",
+    //       job: "Hunter",
+    //       mobile_phone: "06123456789",
+    //       landline_phone: "0123456789",
+    //       job_phone: "0198765432",
+    //       email: "rene.lataupe@mail.com",
+    //       subject: "Achat région parisienne",
+    //       message:
+    //         "Bonjour, je serais intéressé par un bien en région parisienne.",
+    //       nationality: "Française",
+    //       origin: "Contact téléphonique",
+    //       budget: "150000",
+    //       civility: "M",
+    //       nbRoomsDesired: [1],
+    //       request_date: "2022-10-25 10:30",
+    //       newsletterAccepted: true,
+    //       custom_data: "{}",
+    //       sellerEmail: "rene.lataupe@mail.com",
+    //       osmArea: ["Paris"],
+    //       commercialComment: "ceci est un commentaire",
+    //       lotInformation: "Lot 6AB",
+    //     }),
+    //   };
+    //   fetch(
+    //     "https://test-davril.getunlatch.com/api/v1/lead-import/",
+    //     requestOptions
+    //   )
+    //     .then(async (response) => {
+    //       const data = await response.json();
+
+    //       // check for error response
+    //       if (!response.ok) {
+    //         // get error message from body or default to response status
+    //         const error = (data && data.message) || response.status;
+    //         return Promise.reject(error);
+    //       }
+
+    //       this.postId = data.id;
+    //     })
+    //     .catch((error) => {
+    //       this.errorMessage = error;
+    //       console.error("There was an error!", error);
+    //     });
+    },
   },
 };
 </script>
@@ -177,8 +244,6 @@ export default {
         color: var(--tertiary_color);
       }
     }
-
-    
 
     @media #{$max768} {
       .flex_field {
