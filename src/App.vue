@@ -48,7 +48,7 @@
       <div class="flex_plan_wrapper max_content_secondary w90 mt_3 mb_1">
         <div>
           <div class="mb_1">
-            <img src="./assets/images/eiffel.svg" alt="" />
+            <img src="./assets/images/visu_eiffel.svg" alt="" />
           </div>
           <p class="p_font20">
             À 12 km*
@@ -68,7 +68,7 @@
         <span></span>
         <div>
           <div class="mb_1">
-            <img src="./assets/images/commerce.svg" alt="" />
+            <img src="./assets/images/visu_commerce.svg" alt="" />
           </div>
           <p class="p_font20">
             Services et commerces à
@@ -98,18 +98,18 @@
       <div class="card_container max_content_secondary w90 mt_3 mb_1">
         <div class="card_wrapper mb_2">
           <div>
-            <img src="./assets/images/arbre.svg" alt="arbre" />
+            <img src="./assets/images/visu_arbre.svg" alt="arbre" />
             <p class="p_font20">
               Espaces<br />
               végétalisés
             </p>
           </div>
           <div>
-            <img src="./assets/images/plan.svg" alt="plan" />
+            <img src="./assets/images/visu_plan.svg" alt="plan" />
             <p class="p_font20">Du studio au <br />4 pièces</p>
           </div>
           <div>
-            <img src="./assets/images/velo.svg" alt="velo" />
+            <img src="./assets/images/visu_velo.svg" alt="velo" />
             <p class="p_font20">
               Locaux<br />
               à vélos
@@ -118,18 +118,18 @@
         </div>
         <div class="card_wrapper">
           <div>
-            <img src="./assets/images/parking.svg" alt="parking" />
+            <img src="./assets/images/visu_parking.svg" alt="parking" />
             <p class="p_font20">
               Espaces<br />
               végétalisés
             </p>
           </div>
           <div>
-            <img src="./assets/images/banc.svg" alt="banc" />
+            <img src="./assets/images/visu_banc.svg" alt="banc" />
             <p class="p_font20">Du studio au <br />4 pièces</p>
           </div>
           <div>
-            <img src="./assets/images/balcon.svg" alt="balcon" />
+            <img src="./assets/images/visu_balcon.svg" alt="balcon" />
             <p class="p_font20">
               Locaux<br />
               à vélos
