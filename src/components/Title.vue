@@ -1,7 +1,7 @@
 <template>
-  <div class="title mx_1 my_1">
+  <div class="title">
     <p class="primary_title max_content_primary w90" v-html="primaryTitle"></p>
-    <h2 class="secondaryTitle max_content_primary w90" v-html="secondaryTitle"></h2>
+    <h2 class="secondary_title max_content_primary w90" v-html="secondaryTitle"></h2>
   </div>
 </template>
 
@@ -18,6 +18,7 @@ export default {
 <style scoped lang="scss">
 .title {
   width: 100%;
+  padding: 1rem 0;
   p,
   h2 {
     margin: 0 auto;

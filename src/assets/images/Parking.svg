@@ -1,157 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 26.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 700 700" style="enable-background:new 0 0 700 700;" xml:space="preserve">
-<g>
-	<path d="M367.5,175H315v105h52.5c29.2,0,52.5-23.3,52.5-52.5S396.7,175,367.5,175z M367.5,262.5h-35v-70h35c19.2,0,35,15.8,35,35
-		S386.8,262.5,367.5,262.5z"/>
-	<path d="M560,0H140c-38.5,0-70,31.5-70,70v420c0,38.5,31.5,70,70,70h420c38.5,0,70-31.5,70-70V70C630,31.5,598.5,0,560,0z
-		 M612.5,210v280c0,29.2-23.3,52.5-52.5,52.5H140c-29.2,0-52.5-23.3-52.5-52.5V70c0-29.2,23.3-52.5,52.5-52.5h420
-		c29.2,0,52.5,23.3,52.5,52.5V210z"/>
-	<path d="M385,122.5H253.8c-4.7,0-8.8,4.1-8.8,8.8v297.5c0,4.7,4.1,8.8,8.8,8.8h70c4.7,0,8.8-4.1,8.8-8.8v-96.2H385
-		c57.8,0,105-47.2,105-105S442.8,122.5,385,122.5z M385,315h-70v105h-52.5V140H385c48.4,0,87.5,39.1,87.5,87.5S433.4,315,385,315z"
-		/>
-	<g>
-		<defs>
-			<polyline id="SVGID_1_" points="859.2,647.5 859.2,1347.5 159.2,1347.5 			"/>
-		</defs>
-		<clipPath id="SVGID_00000093889756108777082380000010977294485949521803_">
-			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-	<g>
-		<defs>
-			<polyline id="SVGID_00000170248250858340668360000003598039900790762408_" points="981.1,647.5 981.1,1347.5 281.1,1347.5 			"/>
-		</defs>
-		<clipPath id="SVGID_00000150061958666116621330000015031223901424329891_">
-			<use xlink:href="#SVGID_00000170248250858340668360000003598039900790762408_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-	<g>
-		<defs>
-			<polyline id="SVGID_00000175303030497654147770000015695869949070528652_" points="995,647.5 995,1347.5 295,1347.5 			"/>
-		</defs>
-		<clipPath id="SVGID_00000127027732103565053650000013846795545744027317_">
-			<use xlink:href="#SVGID_00000175303030497654147770000015695869949070528652_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-	<g>
-		<defs>
-			<polyline id="SVGID_00000048469452543545087540000015549375861198020231_" points="1072.8,647.5 1072.8,1347.5 372.8,1347.5 			
-				"/>
-		</defs>
-		<clipPath id="SVGID_00000158030515955870234340000009219937422944364215_">
-			<use xlink:href="#SVGID_00000048469452543545087540000015549375861198020231_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-	<g>
-		<defs>
-			<polyline id="SVGID_00000102532324511878196150000014859493254387796882_" points="1140.2,647.5 1140.2,1347.5 440.2,1347.5 			
-				"/>
-		</defs>
-		<clipPath id="SVGID_00000055669706273392566170000006984465824703484092_">
-			<use xlink:href="#SVGID_00000102532324511878196150000014859493254387796882_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-	<g>
-		<defs>
-			<polyline id="SVGID_00000014600548574570570020000015991482047309964186_" points="1160,647.5 1160,1347.5 460,1347.5 			"/>
-		</defs>
-		<clipPath id="SVGID_00000044138864528292768810000008054483581880640143_">
-			<use xlink:href="#SVGID_00000014600548574570570020000015991482047309964186_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-	<g>
-		<defs>
-			<polyline id="SVGID_00000183943331697542482750000014447234337834640037_" points="1179,647.5 1179,1347.5 479,1347.5 			"/>
-		</defs>
-		<clipPath id="SVGID_00000081620537150654529590000004863275540437895604_">
-			<use xlink:href="#SVGID_00000183943331697542482750000014447234337834640037_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-	<g>
-		<defs>
-			<polyline id="SVGID_00000090993550282058802060000005989933339015957918_" points="1189,647.5 1189,1347.5 489,1347.5 			"/>
-		</defs>
-		<clipPath id="SVGID_00000110428484503425795780000008708266760694349959_">
-			<use xlink:href="#SVGID_00000090993550282058802060000005989933339015957918_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-	<g>
-		<defs>
-			<polyline id="SVGID_00000061466658366341942500000015539558762264331143_" points="782.7,676.7 782.7,1376.7 82.7,1376.7 			"/>
-		</defs>
-		<clipPath id="SVGID_00000046327902106269867860000008281798790876840335_">
-			<use xlink:href="#SVGID_00000061466658366341942500000015539558762264331143_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-	<g>
-		<defs>
-			<polyline id="SVGID_00000004518917983910227680000018073275346059525301_" points="857.7,676.7 857.7,1376.7 157.7,1376.7 			"/>
-		</defs>
-		<clipPath id="SVGID_00000016764531891487487660000016769994655042748860_">
-			<use xlink:href="#SVGID_00000004518917983910227680000018073275346059525301_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-	<g>
-		<defs>
-			<polyline id="SVGID_00000011715482397344533830000017094411396434592164_" points="892.4,676.7 892.4,1376.7 192.4,1376.7 			"/>
-		</defs>
-		<clipPath id="SVGID_00000023245435096153720500000008311972843159359902_">
-			<use xlink:href="#SVGID_00000011715482397344533830000017094411396434592164_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-	<g>
-		<defs>
-			<polyline id="SVGID_00000097497874076890327750000011277455595493743261_" points="946.7,676.7 946.7,1376.7 246.7,1376.7 			"/>
-		</defs>
-		<clipPath id="SVGID_00000088108837394839028860000015241652628516868795_">
-			<use xlink:href="#SVGID_00000097497874076890327750000011277455595493743261_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-	<g>
-		<defs>
-			<polyline id="SVGID_00000045586696413681288470000009996629809392204193_" points="987.5,676.7 987.5,1376.7 287.5,1376.7 			"/>
-		</defs>
-		<clipPath id="SVGID_00000160167316261031514370000000936828708346785426_">
-			<use xlink:href="#SVGID_00000045586696413681288470000009996629809392204193_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-	<g>
-		<defs>
-			<polyline id="SVGID_00000098179337714967243460000001081671848893701003_" points="1039.8,676.7 1039.8,1376.7 339.8,1376.7 			
-				"/>
-		</defs>
-		<clipPath id="SVGID_00000045610387491307743590000015074284597655302797_">
-			<use xlink:href="#SVGID_00000098179337714967243460000001081671848893701003_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-	<g>
-		<defs>
-			<polyline id="SVGID_00000064341220778379458150000003964615060253549970_" points="1054.2,676.7 1054.2,1376.7 354.2,1376.7 			
-				"/>
-		</defs>
-		<clipPath id="SVGID_00000161628552863775440330000005107436935552160694_">
-			<use xlink:href="#SVGID_00000064341220778379458150000003964615060253549970_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-	<g>
-		<defs>
-			<polyline id="SVGID_00000124846917047918749620000006966567757481974421_" points="1084.2,676.7 1084.2,1376.7 384.2,1376.7 			
-				"/>
-		</defs>
-		<clipPath id="SVGID_00000165235012001044940460000003464511921175585470_">
-			<use xlink:href="#SVGID_00000124846917047918749620000006966567757481974421_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-	<g>
-		<defs>
-			<polyline id="SVGID_00000033328365350429996180000010198647157782971828_" points="1121.3,676.7 1121.3,1376.7 421.3,1376.7 			
-				"/>
-		</defs>
-		<clipPath id="SVGID_00000058588774433622314980000001751288491437100457_">
-			<use xlink:href="#SVGID_00000033328365350429996180000010198647157782971828_"  style="overflow:visible;"/>
-		</clipPath>
-	</g>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="87" height="87" viewBox="0 0 87 87">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_162" data-name="Rectangle 162" width="43" height="55" transform="translate(0 0.223)" fill="#319f9a"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_179" data-name="Groupe 179" transform="translate(-274.25 -2327)">
+    <g id="Rectangle_161" data-name="Rectangle 161" transform="translate(274.25 2327)" fill="none" stroke="#319f9a" stroke-width="3">
+      <rect width="87" height="87" rx="10" stroke="none"/>
+      <rect x="1.5" y="1.5" width="84" height="84" rx="8.5" fill="none"/>
+    </g>
+    <g id="Groupe_164" data-name="Groupe 164" transform="translate(301.284 2344.263)">
+      <g id="Groupe_163" data-name="Groupe 163" transform="translate(-0.034 -0.486)" clip-path="url(#clip-path)">
+        <path id="Tracé_955" data-name="Tracé 955" d="M79.163,52.5H70V70.825h9.163a9.163,9.163,0,0,0,0-18.325m0,15.271H73.054V55.554h6.108a6.108,6.108,0,0,1,0,12.217" transform="translate(-57.707 -42.997)" fill="#319f9a"/>
+        <path id="Tracé_956" data-name="Tracé 956" d="M24.434,0H1.527A1.565,1.565,0,0,0,0,1.527V53.449a1.565,1.565,0,0,0,1.527,1.527H13.744a1.565,1.565,0,0,0,1.527-1.527v-16.8h9.163A18.325,18.325,0,1,0,24.434,0m0,33.6H12.217V51.922H3.054V3.054h21.38a15.271,15.271,0,1,1,0,30.542" transform="translate(0.076 0.34)" fill="#319f9a"/>
+      </g>
+    </g>
+  </g>
 </svg>

@@ -1,6 +1,6 @@
 <template>
   <div class="mx_1 my_2">
-    <a :href="link" target="_blank" v-html="text"></a>
+    <a :href="link" target="_self" v-html="text"></a>
   </div>
 </template>
 
