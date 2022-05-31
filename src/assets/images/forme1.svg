@@ -1,0 +1,41 @@
+<svg id="Groupe_44" data-name="Groupe 44" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="308.132" height="282.429" viewBox="0 0 308.132 282.429">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_28" data-name="Rectangle 28" width="308.132" height="282.429" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect id="Rectangle_24" data-name="Rectangle 24" width="159.214" height="151.433" transform="translate(51.568 130.996)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-5">
+      <rect id="Rectangle_26" data-name="Rectangle 26" width="308.132" height="225.581" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_43" data-name="Groupe 43" clip-path="url(#clip-path)">
+    <g id="Groupe_42" data-name="Groupe 42">
+      <g id="Groupe_41" data-name="Groupe 41" clip-path="url(#clip-path)">
+        <g id="Groupe_35" data-name="Groupe 35" opacity="0.2" style="mix-blend-mode: multiply;isolation: isolate">
+          <g id="Groupe_34" data-name="Groupe 34">
+            <g id="Groupe_33" data-name="Groupe 33" clip-path="url(#clip-path-3)">
+              <g id="Groupe_32" data-name="Groupe 32">
+                <g id="Groupe_31" data-name="Groupe 31" clip-path="url(#clip-path-3)">
+                  <path id="Tracé_52" data-name="Tracé 52" d="M132.959,132a88.546,88.546,0,0,0-24.017,3.254c-16.469,3.916-31.655,13.243-41.786,26.434-16.723,21.771-19.172,52.71-6.814,77.05a78.757,78.757,0,0,0,70.436,42.695c21.069,0,42.228-7.9,57.013-22.459,21.55-21.219,28.168-55.4,15.8-82.615-8.581-18.882-26.222-32.9-46.09-40.255a70.97,70.97,0,0,0-24.542-4.1" fill="#779c46"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+        <g id="Groupe_40" data-name="Groupe 40" opacity="0.14" style="mix-blend-mode: multiply;isolation: isolate">
+          <g id="Groupe_39" data-name="Groupe 39">
+            <g id="Groupe_38" data-name="Groupe 38" clip-path="url(#clip-path-5)">
+              <g id="Groupe_37" data-name="Groupe 37">
+                <g id="Groupe_36" data-name="Groupe 36" clip-path="url(#clip-path-5)">
+                  <path id="Tracé_53" data-name="Tracé 53" d="M1.475,115.182c-.105,25.676,34.66,47.095,91.949,56.942,23.066,3.965,32.935,61.569,106.8,25.57,5.963,19.092,28.705,29.66,48.331,25.808s35.47-19.346,44.256-37.311,11.483-38.259,12.931-58.206c.532-7.317.9-14.7.935-22.072.076-17.388-1.733-34.717-7.76-50.932-8.581-23.091-9.447-44.577-33.269-50.85C234.58-4.053,198.225,13.2,190.548,40.1c-36.061-23.767-58.75-11.954-79.478-4.864C34.372,61.468,1.577,90.32,1.475,115.182" fill="#319f9a"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

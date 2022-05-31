@@ -1,0 +1,26 @@
+:root {
+    // colors
+    --black: rgb(0, 0, 0);
+    --white: rgba(255, 255, 255, 1);
+    --primary_color: rgb(49, 159, 154);
+    --secondary_color: rgb(171, 153, 46);
+    --tertiary_color: rgb(60, 58, 58);
+    --background : rgb(228, 243, 242);
+
+    // fonts
+    --open_sans: "Open Sans", sans-serif;
+    --w200: 200;
+    --w300: 300;
+    --w400: 400;
+    --w500: 500;
+    --w600: 600;
+    --w700: 700;
+    --w800: 800;
+    --w900: 900;
+}
+
+// breakpoints
+$max1440 : "screen and (max-width : 1440px)";
+$max1280 : "screen and (max-width : 1280px)";
+$max768 : "screen and (max-width : 768px)";
+$max480 : "screen and (max-width : 480px)";
