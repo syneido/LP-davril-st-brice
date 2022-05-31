@@ -26,7 +26,7 @@
           required
         />
         <select name="lodging" id="lodging_select" required>
-          <option value="">Type de logement recherché</option>
+          <option value="" disabled selected>Type de logement recherché</option>
           <option value="1">Studio</option>
           <option value="2">Appartement 2 pièces</option>
           <option value="3">Appartement 3 pièces</option>
@@ -83,6 +83,7 @@ export default {
   methods: {
     async onSubmit(e) {
       e.preventDefault();
+      
     //   const requestOptions = {
     //     method: "POST",
     //     headers: { "Content-Type": "application/json" },
@@ -171,7 +172,7 @@ export default {
       width: 100%;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: stretch;
       flex-wrap: wrap;
       gap: 2rem;
     }
@@ -213,7 +214,7 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 3rem;
+      gap: 5%;
       & > div {
         display: flex;
         align-items: center;
