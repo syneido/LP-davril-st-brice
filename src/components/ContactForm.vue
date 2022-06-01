@@ -7,6 +7,7 @@
 à Saint-Brice-sous-Forêt&nbsp;! "
     ></Title>
     <form @submit="onSubmit" class="max_content_secondary w90">
+      <p class="error">{{ postError }}</p>
       <div class="flex_field">
         <ValidationProvider
           class="inputContainer"
@@ -14,7 +15,7 @@
           rules="required"
           name="nom"
           mode="eager"
-          >
+        >
           <input v-model="firstName" type="text" placeholder="Nom*" required />
           <span>{{ errors[0] }}</span>
         </ValidationProvider>
@@ -25,7 +26,7 @@
           rules="required"
           name="prénom"
           mode="eager"
-          >
+        >
           <input v-model="name" type="text" placeholder="Prénom*" required />
           <span>{{ errors[0] }}</span>
         </ValidationProvider>
@@ -44,7 +45,7 @@
           v-slot="{ errors }"
           rules="phone"
           name="téléphone"
-           mode="eager"
+          mode="eager"
           ><input
             v-model="tel"
             type="number"
@@ -60,7 +61,7 @@
           v-slot="{ errors }"
           rules="postalCodeRule"
           name="code postal"
-           mode="eager"
+          mode="eager"
         >
           <input
             v-model="postalCode"
@@ -176,6 +177,7 @@ export default {
       roomNumber: "",
       budget: 250000,
       ml: "oui",
+      postError: "",
     };
   },
   methods: {
@@ -224,6 +226,7 @@ export default {
       )
         .then(async (response) => {
           const data = await response.json();
+          this.postError = "";
 
           // check for error response
           if (!response.ok) {
@@ -237,6 +240,7 @@ export default {
         .catch((error) => {
           this.errorMessage = error;
           console.error("There was an error!", error);
+          this.postError = "Une erreur est survenue";
         });
     },
   },
@@ -265,6 +269,7 @@ export default {
   }
 
   form {
+    position: relative;
     .flex_field {
       width: 100%;
       display: flex;
@@ -272,6 +277,21 @@ export default {
       align-items: stretch;
       flex-wrap: wrap;
       gap: 2rem;
+    }
+
+    span,
+    .error {
+      color: red;
+      font-size: 0.8rem;
+      padding-top: 0.2rem;
+    }
+
+    .error{
+      position: absolute;
+      transform: translateX(-50%);
+      left: 50%;
+      top: -3rem;
+      
     }
 
     .inputContainer {
@@ -295,10 +315,6 @@ export default {
         &:focus {
           outline: none !important;
         }
-      }
-      span{
-        color: red;
-        font-size: 0.8rem;
       }
     }
     select {
@@ -381,7 +397,6 @@ export default {
     }
 
     @media #{$max480} {
-      
       input[type="submit"] {
         margin-bottom: -1.1rem;
       }
