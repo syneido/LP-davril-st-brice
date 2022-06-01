@@ -120,19 +120,17 @@
           <div>
             <img src="./assets/images/visu_parking.svg" alt="parking" />
             <p class="p_font20">
-              Espaces<br />
-              végétalisés
+              Parking en<br> sous-sol
             </p>
           </div>
           <div>
             <img src="./assets/images/visu_banc.svg" alt="banc" />
-            <p class="p_font20">Du studio au <br />4 pièces</p>
+            <p class="p_font20"> Résidence à<br> taille humaine</p>
           </div>
           <div>
             <img src="./assets/images/visu_balcon.svg" alt="balcon" />
             <p class="p_font20">
-              Locaux<br />
-              à vélos
+              Avec balcon ou <br>terrasse
             </p>
           </div>
         </div>

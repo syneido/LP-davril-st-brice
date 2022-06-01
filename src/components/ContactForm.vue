@@ -6,139 +6,160 @@
       secondaryTitle=" et devenir propriétaire de votre appartement<br>
 à Saint-Brice-sous-Forêt&nbsp;! "
     ></Title>
-    <form @submit="onSubmit" class="max_content_secondary w90">
-      <p class="error">{{ postError }}</p>
-      <div class="flex_field">
-        <ValidationProvider
-          class="inputContainer"
-          v-slot="{ errors }"
-          rules="required"
-          name="nom"
-          mode="eager"
-        >
-          <input v-model="firstName" type="text" placeholder="Nom*" required />
-          <span>{{ errors[0] }}</span>
-        </ValidationProvider>
-
-        <ValidationProvider
-          class="inputContainer"
-          v-slot="{ errors }"
-          rules="required"
-          name="prénom"
-          mode="eager"
-        >
-          <input v-model="name" type="text" placeholder="Prénom*" required />
-          <span>{{ errors[0] }}</span>
-        </ValidationProvider>
-
-        <ValidationProvider
-          class="inputContainer"
-          v-slot="{ errors }"
-          rules="required|email"
-          name="email"
-          mode="eager"
-          ><input v-model="email" type="text" placeholder="E-mail*" required />
-          <span>{{ errors[0] }}</span></ValidationProvider
-        >
-        <ValidationProvider
-          class="inputContainer"
-          v-slot="{ errors }"
-          rules="phone"
-          name="téléphone"
-          mode="eager"
-          ><input
-            v-model="tel"
-            type="number"
-            placeholder="Téléphone*"
-            maxlength="10"
-            pattern="[0-9]{10}"
-            required
-          /><span>{{ errors[0] }}</span></ValidationProvider
-        >
-
-        <ValidationProvider
-          class="inputContainer"
-          v-slot="{ errors }"
-          rules="postalCodeRule"
-          name="code postal"
-          mode="eager"
-        >
-          <input
-            v-model="postalCode"
-            type="number"
-            placeholder="Code postal*"
-            maxlength="5"
-            pattern="[0-9]{5}"
-            required
-          /><span>{{ errors[0] }}</span></ValidationProvider
-        >
-        <div class="inputContainer">
-          <select
-            v-model="roomNumber"
-            name="lodging"
-            id="lodging_select"
-            required
+    <ValidationObserver
+      class="max_content_secondary w90"
+      ref="observer"
+      v-slot="{ invalid }"
+    >
+      <form @submit="onSubmit">
+        <p class="error">{{ postError }}</p>
+        <div class="flex_field">
+          <ValidationProvider
+            class="inputContainer"
+            v-slot="{ errors }"
+            rules="required"
+            name="nom"
+            mode="eager"
           >
-            <option value="" disabled selected>
-              Type de logement recherché
-            </option>
-            <option value="1">Studio</option>
-            <option value="2">Appartement 2 pièces</option>
-            <option value="3">Appartement 3 pièces</option>
-            <option value="4">Appartement 4 pièces</option>
+            <input
+              v-model="firstName"
+              type="text"
+              placeholder="Nom*"
+              required
+            />
+            <span>{{ errors[0] }}</span>
+          </ValidationProvider>
+
+          <ValidationProvider
+            class="inputContainer"
+            v-slot="{ errors }"
+            rules="required"
+            name="prénom"
+            mode="eager"
+          >
+            <input v-model="name" type="text" placeholder="Prénom*" required />
+            <span>{{ errors[0] }}</span>
+          </ValidationProvider>
+
+          <ValidationProvider
+            class="inputContainer"
+            v-slot="{ errors }"
+            rules="required|email"
+            name="email"
+            mode="eager"
+            ><input
+              v-model="email"
+              type="text"
+              placeholder="E-mail*"
+              required
+            />
+            <span>{{ errors[0] }}</span></ValidationProvider
+          >
+          <ValidationProvider
+            class="inputContainer"
+            v-slot="{ errors }"
+            rules="phone"
+            name="téléphone"
+            mode="eager"
+            ><input
+              v-model="tel"
+              type="number"
+              placeholder="Téléphone*"
+              maxlength="10"
+              pattern="[0-9]{10}"
+              required
+            /><span>{{ errors[0] }}</span></ValidationProvider
+          >
+
+          <ValidationProvider
+            class="inputContainer"
+            v-slot="{ errors }"
+            rules="postalCodeRule"
+            name="code postal"
+            mode="eager"
+          >
+            <input
+              v-model="postalCode"
+              type="number"
+              placeholder="Code postal*"
+              maxlength="5"
+              pattern="[0-9]{5}"
+              required
+            /><span>{{ errors[0] }}</span></ValidationProvider
+          >
+          <div class="inputContainer">
+            <select
+              v-model="roomNumber"
+              name="lodging"
+              id="lodging_select"
+              required
+            >
+              <option value="" disabled selected>
+                Type de logement recherché
+              </option>
+              <option value="1">Studio</option>
+              <option value="2">Appartement 2 pièces</option>
+              <option value="3">Appartement 3 pièces</option>
+              <option value="4">Appartement 4 pièces</option>
+            </select>
+          </div>
+        </div>
+        <p class="p_font20 my_2 budget_info">
+          Pour un accompagnement sur-mesure, pourriez-vous nous indiquer votre
+          budget&nbsp;?
+        </p>
+        <div class="inputContainer" id="budget_select">
+          <select v-model="budget" class="mb_2" name="budget" required>
+            <option value="250000" selected>Entre 150 000€ et 250 000€</option>
+            <option value="350000">Entre 250 000 € et 350 000 €</option>
+            <option value="450000">Entre 350 000 € et 450 000 €</option>
           </select>
         </div>
-      </div>
-      <p class="p_font20 my_2 budget_info">
-        Pour un accompagnement sur-mesure, pourriez-vous nous indiquer votre
-        budget&nbsp;?
-      </p>
-      <div class="inputContainer" id="budget_select">
-        <select v-model="budget" class="mb_2" name="budget" required>
-          <option value="250000" selected>Entre 150 000€ et 250 000€</option>
-          <option value="350000">Entre 250 000 € et 350 000 €</option>
-          <option value="450000">Entre 350 000 € et 450 000 €</option>
-        </select>
-      </div>
-      <div class="flex_radio mt_2">
-        <div>
-          <input
-            v-model="ml"
-            type="radio"
-            id="oui"
-            name="ml"
-            value="oui"
-            checked
-          />
-          <label for="oui">Oui</label>
-        </div>
+        <div class="flex_radio mt_2">
+          <div>
+            <input
+              v-model="ml"
+              type="radio"
+              id="oui"
+              name="ml"
+              value="oui"
+              checked
+            />
+            <label for="oui">Oui</label>
+          </div>
 
-        <div>
-          <input v-model="ml" type="radio" id="non" name="ml" value="non" />
-          <label for="non">Non</label>
+          <div>
+            <input v-model="ml" type="radio" id="non" name="ml" value="non" />
+            <label for="non">Non</label>
+          </div>
         </div>
-      </div>
-      <p class="p_font20 condition my_2">
-        Vous acceptez que vos données soient envoyées et traitées par DAVRIL en
-        tant que responsable de traitement afin que nous puissions répondre à
-        votre demande d’information sur le programme LES ALLÉES VICTORIA et vous
-        contacter. Vos données sont conservées pendant 2 ans suivant votre
-        dernière prise de contact. Vous pouvez exercer vos droits et vous
-        désinscrire à tout moment. Pour en savoir plus, consultez notre
-        politique de confidentialité.
-      </p>
-      <input
-        :disabled="ml === `non` ? true : false"
-        type="submit"
-        value="Je m’inscris"
-      />
-    </form>
+        <p class="p_font20 condition my_2">
+          Vous acceptez que vos données soient envoyées et traitées par DAVRIL
+          en tant que responsable de traitement afin que nous puissions répondre
+          à votre demande d’information sur le programme LES ALLÉES VICTORIA et
+          vous contacter. Vos données sont conservées pendant 2 ans suivant
+          votre dernière prise de contact. Vous pouvez exercer vos droits et
+          vous désinscrire à tout moment. Pour en savoir plus, consultez notre
+          politique de confidentialité.
+        </p>
+        <input
+          :disabled="ml === `non` || invalid ? true : false"
+          type="submit"
+          value="Je m’inscris"
+        />
+      </form>
+    </ValidationObserver>
   </div>
 </template>
 
 <script>
 import Title from "./Title.vue";
-import { ValidationProvider, extend, localize } from "vee-validate";
+import {
+  ValidationProvider,
+  ValidationObserver,
+  extend,
+  localize,
+} from "vee-validate";
 import { required, email } from "vee-validate/dist/rules";
 import fr from "vee-validate/dist/locale/fr.json";
 
@@ -166,6 +187,7 @@ export default {
   components: {
     Title,
     ValidationProvider,
+    ValidationObserver,
   },
   data() {
     return {
@@ -270,6 +292,8 @@ export default {
 
   form {
     position: relative;
+    margin: 0 auto;
+
     .flex_field {
       width: 100%;
       display: flex;
@@ -279,19 +303,18 @@ export default {
       gap: 2rem;
     }
 
-    span,
+    .inputContainer > span,
     .error {
       color: red;
       font-size: 0.8rem;
       padding-top: 0.2rem;
     }
 
-    .error{
+    .error {
       position: absolute;
       transform: translateX(-50%);
       left: 50%;
       top: -3rem;
-      
     }
 
     .inputContainer {
@@ -302,6 +325,7 @@ export default {
       select {
         margin: 0 auto;
         width: 100%;
+        height: 100%;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
