@@ -323,6 +323,7 @@ export default {
       width: 15rem;
       input,
       select {
+        color: var(--black);
         margin: 0 auto;
         width: 100%;
         height: 100%;
@@ -410,6 +411,11 @@ export default {
     @media #{$max768} {
       #budget_select {
         width: 100%;
+      }
+      .inputContainer{
+        input, select{
+          height: auto;
+        }
       }
       .flex_field {
         gap: 1rem;
