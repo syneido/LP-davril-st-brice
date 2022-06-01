@@ -19,6 +19,12 @@ p {
     line-height: clamp(1.3rem, 2.5vw, 1.9rem);
 }
 
+input,
+button {
+    -webkit-appearance: none;
+    -webkit-border-radius: none;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
