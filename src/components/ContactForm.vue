@@ -136,7 +136,7 @@
         <p class="p_font20 condition my_2">
           Vous acceptez que vos données soient envoyées et traitées par DAVRIL
           en tant que responsable de traitement afin que nous puissions répondre
-          à votre demande d’information sur le programme LES ALLÉES VICTORIA et
+          à votre demande d’information sur le programme CARRÉ NATURE et
           vous contacter. Vos données sont conservées pendant 2 ans suivant
           votre dernière prise de contact. Vous pouvez exercer vos droits et
           vous désinscrire à tout moment. Pour en savoir plus, consultez notre
