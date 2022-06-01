@@ -45,6 +45,7 @@ input[type="number"] {
 
 .secondary_title {
     font-size: clamp(1.4rem, 3.5vw, 2.25rem);
+    line-height: clamp(1.7rem, 4vw, 2.7rem);
     font-weight: var(--w500);
     text-transform: uppercase;
 }

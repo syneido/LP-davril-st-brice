@@ -48,7 +48,7 @@
       <div class="flex_plan_wrapper max_content_secondary w90 mt_3 mb_1">
         <div>
           <div class="mb_1">
-            <img src="./assets/images/visu_eiffel.svg" alt="" />
+            <img src="./assets/images/visu_eiffel.svg" alt="tour eiffel" />
           </div>
           <p class="p_font20">
             À 12 km*
@@ -58,7 +58,7 @@
         <span></span>
         <div>
           <div class="mb_1">
-            <img src="./assets/images/arbres.svg" alt="" />
+            <img src="./assets/images/arbres.svg" alt="forêt" />
           </div>
           <p class="p_font20">
             À proximité de
@@ -68,7 +68,7 @@
         <span></span>
         <div>
           <div class="mb_1">
-            <img src="./assets/images/visu_commerce.svg" alt="" />
+            <img src="./assets/images/visu_commerce.svg" alt="commerces" />
           </div>
           <p class="p_font20">
             Services et commerces à
@@ -82,7 +82,7 @@
 
     <section class="architecture">
       <div class="illustration max_1366 mb_4">
-        <img src="./assets/images/ec1.jpg" alt="" />
+        <img src="./assets/images/ec1.jpg" alt="illustration intérieur d'appartement" />
         <div class="title_container">
           <Title
             primaryTitle="Une architecture élégante"
