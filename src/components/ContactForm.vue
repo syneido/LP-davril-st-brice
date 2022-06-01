@@ -110,9 +110,9 @@
         </p>
         <div class="inputContainer" id="budget_select">
           <select v-model="budget" class="mb_2" name="budget" required>
-            <option value="250000" selected>Entre 150 000€ et 250 000€</option>
-            <option value="350000">Entre 250 000 € et 350 000 €</option>
-            <option value="450000">Entre 350 000 € et 450 000 €</option>
+            <option value="Entre 150 000€ et 250 000€" selected>Entre 150 000€ et 250 000€</option>
+            <option value="Entre 250 000 € et 350 000 €">Entre 250 000 € et 350 000 €</option>
+            <option value="Entre 350 000 € et 450 000 €">Entre 350 000 € et 450 000 €</option>
           </select>
         </div>
         <div class="flex_radio mt_2">
@@ -136,10 +136,10 @@
         <p class="p_font20 condition my_2">
           Vous acceptez que vos données soient envoyées et traitées par DAVRIL
           en tant que responsable de traitement afin que nous puissions répondre
-          à votre demande d’information sur le programme CARRÉ NATURE et
-          vous contacter. Vos données sont conservées pendant 2 ans suivant
-          votre dernière prise de contact. Vous pouvez exercer vos droits et
-          vous désinscrire à tout moment. Pour en savoir plus, consultez notre
+          à votre demande d’information sur le programme CARRÉ NATURE et vous
+          contacter. Vos données sont conservées pendant 2 ans suivant votre
+          dernière prise de contact. Vous pouvez exercer vos droits et vous
+          désinscrire à tout moment. Pour en savoir plus, consultez notre
           politique de confidentialité.
         </p>
         <input
@@ -197,7 +197,7 @@ export default {
       tel: "",
       postalCode: "",
       roomNumber: "",
-      budget: 250000,
+      budget: "Entre 150 000€ et 250 000€",
       ml: "oui",
       postError: "",
     };
@@ -301,6 +301,14 @@ export default {
       align-items: stretch;
       flex-wrap: wrap;
       gap: 2rem;
+      @supports not (gap: 2rem) {
+        .flex-container {
+          margin: -0.5em;
+        }
+        .flex-container > * {
+          margin: 0.5em;
+        }
+      }
     }
 
     .inputContainer > span,
@@ -412,8 +420,9 @@ export default {
       #budget_select {
         width: 100%;
       }
-      .inputContainer{
-        input, select{
+      .inputContainer {
+        input,
+        select {
           height: auto;
         }
       }
