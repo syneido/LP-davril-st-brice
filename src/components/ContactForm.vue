@@ -8,49 +8,113 @@
     ></Title>
     <form @submit="onSubmit" class="max_content_secondary w90">
       <div class="flex_field">
-        <input v-model="name" type="text" placeholder="Nom*" required />
-        <input type="text" placeholder="Prénom*" required />
-        <input type="text" placeholder="E-mail*" required />
-        <input
-          type="number"
-          placeholder="Téléphone*"
-          maxlength="8"
-          pattern="[0-9]{8}"
-          required
-        />
-        <input
-          type="number"
-          placeholder="Code postal*"
-          maxlength="5"
-          pattern="[0-9]{5}"
-          required
-        />
-        <select name="lodging" id="lodging_select" required>
-          <option value="" disabled selected>Type de logement recherché</option>
-          <option value="1">Studio</option>
-          <option value="2">Appartement 2 pièces</option>
-          <option value="3">Appartement 3 pièces</option>
-          <option value="4">Appartement 4 pièces</option>
-        </select>
+        <ValidationProvider
+          class="inputContainer"
+          v-slot="{ errors }"
+          rules="required"
+          name="nom"
+          mode="eager"
+          >
+          <input v-model="firstName" type="text" placeholder="Nom*" required />
+          <span>{{ errors[0] }}</span>
+        </ValidationProvider>
+
+        <ValidationProvider
+          class="inputContainer"
+          v-slot="{ errors }"
+          rules="required"
+          name="prénom"
+          mode="eager"
+          >
+          <input v-model="name" type="text" placeholder="Prénom*" required />
+          <span>{{ errors[0] }}</span>
+        </ValidationProvider>
+
+        <ValidationProvider
+          class="inputContainer"
+          v-slot="{ errors }"
+          rules="required|email"
+          name="email"
+          mode="eager"
+          ><input v-model="email" type="text" placeholder="E-mail*" required />
+          <span>{{ errors[0] }}</span></ValidationProvider
+        >
+        <ValidationProvider
+          class="inputContainer"
+          v-slot="{ errors }"
+          rules="phone"
+          name="téléphone"
+           mode="eager"
+          ><input
+            v-model="tel"
+            type="number"
+            placeholder="Téléphone*"
+            maxlength="10"
+            pattern="[0-9]{10}"
+            required
+          /><span>{{ errors[0] }}</span></ValidationProvider
+        >
+
+        <ValidationProvider
+          class="inputContainer"
+          v-slot="{ errors }"
+          rules="postalCodeRule"
+          name="code postal"
+           mode="eager"
+        >
+          <input
+            v-model="postalCode"
+            type="number"
+            placeholder="Code postal*"
+            maxlength="5"
+            pattern="[0-9]{5}"
+            required
+          /><span>{{ errors[0] }}</span></ValidationProvider
+        >
+        <div class="inputContainer">
+          <select
+            v-model="roomNumber"
+            name="lodging"
+            id="lodging_select"
+            required
+          >
+            <option value="" disabled selected>
+              Type de logement recherché
+            </option>
+            <option value="1">Studio</option>
+            <option value="2">Appartement 2 pièces</option>
+            <option value="3">Appartement 3 pièces</option>
+            <option value="4">Appartement 4 pièces</option>
+          </select>
+        </div>
       </div>
       <p class="p_font20 my_2 budget_info">
         Pour un accompagnement sur-mesure, pourriez-vous nous indiquer votre
         budget&nbsp;?
       </p>
-      <select class="mb_2" name="budget" id="budget_select" required>
-        <option value="1">Entre 150 000€ et 250 000€</option>
-        <option value="2">Entre 250 000 € et 350 000 €</option>
-        <option value="3">Entre 350 000 € et 450 000 €</option>
-      </select>
+      <div class="inputContainer" id="budget_select">
+        <select v-model="budget" class="mb_2" name="budget" required>
+          <option value="250000" selected>Entre 150 000€ et 250 000€</option>
+          <option value="350000">Entre 250 000 € et 350 000 €</option>
+          <option value="450000">Entre 350 000 € et 450 000 €</option>
+        </select>
+      </div>
       <div class="flex_radio mt_2">
         <div>
-          <input type="radio" id="huey" name="drone" value="huey" checked />
-          <label for="huey">Oui</label>
+          <input
+            v-model="ml"
+            type="radio"
+            id="oui"
+            name="ml"
+            value="oui"
+            checked
+          />
+          <label for="oui">Oui</label>
         </div>
 
         <div>
-          <input type="radio" id="dewey" name="drone" value="dewey" />
-          <label for="dewey">Non</label>
+          <input v-model="ml" type="radio" id="non" name="ml" value="non" />
+          <label for="non">Non</label>
         </div>
       </div>
       <p class="p_font20 condition my_2">
@@ -62,85 +126,118 @@
         désinscrire à tout moment. Pour en savoir plus, consultez notre
         politique de confidentialité.
       </p>
-      <input type="submit" value="Je m’inscris" />
+      <input
+        :disabled="ml === `non` ? true : false"
+        type="submit"
+        value="Je m’inscris"
+      />
     </form>
   </div>
 </template>
 
 <script>
 import Title from "./Title.vue";
+import { ValidationProvider, extend, localize } from "vee-validate";
+import { required, email } from "vee-validate/dist/rules";
+import fr from "vee-validate/dist/locale/fr.json";
+
+extend("required", required);
+extend("email", email);
+extend("phone", (value) => {
+  let regex = /^(0)[0-9](\d{1}){8}$/;
+  if (!regex.test(value)) {
+    return "Le téléphone est invalide";
+  }
+  return regex.test(value);
+});
+extend("postalCodeRule", (value) => {
+  let regex = /^(([0-8][0-9])|(9[0-5]))[0-9]{3}$/;
+  if (!regex.test(value)) {
+    return "Le code postal est invalide";
+  }
+  return regex.test(value);
+});
+
+localize("fr", fr);
 
 export default {
   name: "ContactForm",
   components: {
     Title,
+    ValidationProvider,
   },
   data() {
     return {
       firstName: "",
+      name: "",
+      email: "",
+      tel: "",
+      postalCode: "",
+      roomNumber: "",
+      budget: 250000,
+      ml: "oui",
     };
   },
   methods: {
     async onSubmit(e) {
       e.preventDefault();
-      
-    //   const requestOptions = {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({
-    //       programIds: [640302757],
-    //       MediaReference: 1867390035,
-    //       isClaimedLead: false,
-    //       needValidation: false,
-    //       address: "1 rue de France",
-    //       city: "Paris",
-    //       postal_code: "75001",
-    //       country: "AF",
-    //       lastname: "La Taupe",
-    //       firstname: this.name,
-    //       company: "google",
-    //       job: "Hunter",
-    //       mobile_phone: "06123456789",
-    //       landline_phone: "0123456789",
-    //       job_phone: "0198765432",
-    //       email: "rene.lataupe@mail.com",
-    //       subject: "Achat région parisienne",
-    //       message:
-    //         "Bonjour, je serais intéressé par un bien en région parisienne.",
-    //       nationality: "Française",
-    //       origin: "Contact téléphonique",
-    //       budget: "150000",
-    //       civility: "M",
-    //       nbRoomsDesired: [1],
-    //       request_date: "2022-10-25 10:30",
-    //       newsletterAccepted: true,
-    //       custom_data: "{}",
-    //       sellerEmail: "rene.lataupe@mail.com",
-    //       osmArea: ["Paris"],
-    //       commercialComment: "ceci est un commentaire",
-    //       lotInformation: "Lot 6AB",
-    //     }),
-    //   };
-    //   fetch(
-    //     "https://test-davril.getunlatch.com/api/v1/lead-import/",
-    //     requestOptions
-    //   )
-    //     .then(async (response) => {
-    //       const data = await response.json();
+      if (this.ml != "oui") return;
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          programIds: [640302757],
+          MediaReference: 1867390035,
+          isClaimedLead: false,
+          needValidation: false,
+          address: "",
+          city: "",
+          postal_code: this.postalCode,
+          country: "",
+          lastname: this.name,
+          firstname: this.firstName,
+          company: "",
+          job: "",
+          mobile_phone: this.tel,
+          landline_phone: "",
+          job_phone: "",
+          email: this.email,
+          subject: "Contact Saint-Brice-Sous-Forêt",
+          message: "",
+          nationality: "",
+          origin: "LP Carré Nature",
+          budget: "150000",
+          civility: "",
+          nbRoomsDesired: [this.roomNumber],
+          request_date: "",
+          newsletterAccepted: true,
+          custom_data: "{}",
+          sellerEmail: "",
+          osmArea: ["Lille"],
+          commercialComment: "",
+          lotInformation: "",
+        }),
+      };
+      fetch(
+        "https://test-davril.getunlatch.com/api/v1/lead-import/",
+        requestOptions
+      )
+        .then(async (response) => {
+          const data = await response.json();
 
-    //       // check for error response
-    //       if (!response.ok) {
-    //         // get error message from body or default to response status
-    //         const error = (data && data.message) || response.status;
-    //         return Promise.reject(error);
-    //       }
+          // check for error response
+          if (!response.ok) {
+            // get error message from body or default to response status
+            const error = (data && data.message) || response.status;
+            return Promise.reject(error);
+          }
 
-    //       this.postId = data.id;
-    //     })
-    //     .catch((error) => {
-    //       this.errorMessage = error;
-    //       console.error("There was an error!", error);
-    //     });
+          this.postId = data.id;
+        })
+        .catch((error) => {
+          this.errorMessage = error;
+          console.error("There was an error!", error);
+        });
     },
   },
 };
@@ -177,22 +274,31 @@ export default {
       gap: 2rem;
     }
 
-    input,
-    select {
-      margin: 0 auto;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      display: block;
-      width: 15rem;
-      max-width: 19rem;
+    .inputContainer {
       flex-grow: 1;
       flex-shrink: 1;
-      font-size: 1rem;
-      border: 1px solid var(--black);
-      padding: 1rem;
-      &:focus {
-        outline: none !important;
+      width: 15rem;
+      input,
+      select {
+        margin: 0 auto;
+        width: 100%;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        display: block;
+
+        max-width: 19rem;
+
+        font-size: 1rem;
+        border: 1px solid var(--black);
+        padding: 1rem;
+        &:focus {
+          outline: none !important;
+        }
+      }
+      span{
+        color: red;
+        font-size: 0.8rem;
       }
     }
     select {
@@ -218,17 +324,23 @@ export default {
       & > div {
         display: flex;
         align-items: center;
-
+        input,
+        label {
+          cursor: pointer;
+        }
         input {
           width: auto;
         }
         label {
+          font-size: 0.9rem;
           padding-left: 0.5rem;
           text-align: left;
         }
       }
     }
     input[type="submit"] {
+      cursor: pointer;
+      margin: 0 auto;
       max-width: 22rem;
       width: 80%;
       transition: all 0.2s;
@@ -244,9 +356,21 @@ export default {
         background-color: var(--white);
         color: var(--tertiary_color);
       }
+      &:disabled {
+        cursor: not-allowed;
+        background-color: rgb(180, 180, 180);
+        border-color: rgb(180, 180, 180);
+        &:hover {
+          background-color: rgb(180, 180, 180);
+          color: var(--white);
+        }
+      }
     }
 
     @media #{$max768} {
+      #budget_select {
+        width: 100%;
+      }
       .flex_field {
         gap: 1rem;
       }
@@ -257,9 +381,7 @@ export default {
     }
 
     @media #{$max480} {
-      #budget_select {
-        width: 100%;
-      }
+      
       input[type="submit"] {
         margin-bottom: -1.1rem;
       }
