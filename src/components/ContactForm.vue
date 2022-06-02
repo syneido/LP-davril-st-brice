@@ -110,9 +110,15 @@
         </p>
         <div class="inputContainer" id="budget_select">
           <select v-model="budget" class="mb_2" name="budget" required>
-            <option value="Entre 150 000€ et 250 000€" selected>Entre 150 000€ et 250 000€</option>
-            <option value="Entre 250 000 € et 350 000 €">Entre 250 000 € et 350 000 €</option>
-            <option value="Entre 350 000 € et 450 000 €">Entre 350 000 € et 450 000 €</option>
+            <option value="Entre 150 000€ et 250 000€" selected>
+              Entre 150 000€ et 250 000€
+            </option>
+            <option value="Entre 250 000 € et 350 000 €">
+              Entre 250 000 € et 350 000 €
+            </option>
+            <option value="Entre 350 000 € et 450 000 €">
+              Entre 350 000 € et 450 000 €
+            </option>
           </select>
         </div>
         <div class="flex_radio mt_2">
@@ -203,51 +209,26 @@ export default {
     };
   },
   methods: {
-    async onSubmit(e) {
+    onSubmit(e) {
       e.preventDefault();
       if (this.ml != "oui") return;
-      const requestOptions = {
+
+      let token = "";
+      const authOptions = {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: new Headers({
+          "Content-Type": "application/json",
+        }),
         body: JSON.stringify({
-          programIds: [640302757],
-          MediaReference: 1867390035,
-          isClaimedLead: false,
-          needValidation: false,
-          address: "",
-          city: "",
-          postal_code: this.postalCode,
-          country: "",
-          lastname: this.name,
-          firstname: this.firstName,
-          company: "",
-          job: "",
-          mobile_phone: this.tel,
-          landline_phone: "",
-          job_phone: "",
-          email: this.email,
-          subject: "Contact Saint-Brice-Sous-Forêt",
-          message: "",
-          nationality: "",
-          origin: "LP Carré Nature",
-          budget: "150000",
-          civility: "",
-          nbRoomsDesired: [this.roomNumber],
-          request_date: "",
-          newsletterAccepted: true,
-          custom_data: "{}",
-          sellerEmail: "",
-          osmArea: ["Lille"],
-          commercialComment: "",
-          lotInformation: "",
+          email: "test@test-davril.getunlatch.com",
+          password: "3hey3tbb",
         }),
       };
-      fetch(
-        "https://test-davril.getunlatch.com/api/v1/lead-import/",
-        requestOptions
-      )
+      fetch("https://test-davril.getunlatch.com/api/v1/key/", authOptions)
         .then(async (response) => {
           const data = await response.json();
+          console.log(data);
+          token = data.token;
           this.postError = "";
 
           // check for error response
@@ -257,11 +238,55 @@ export default {
             return Promise.reject(error);
           }
 
-          this.postId = data.id;
+          const leadImportOptions = {
+            method: "POST",
+            headers: new Headers({
+              Authorization: "Bearer " + token,
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            }),
+            body: JSON.stringify({
+              programIds: [640302757],
+              MediaReference: 1867390035,
+              postal_code: this.postalCode,
+              lastname: this.name,
+              firstname: this.firstName,
+              mobile_phone: this.tel,
+              email: this.email,
+              subject: "Contact LP Saint-Brice-Sous-Forêt",
+              origin: "LP Carré Nature",
+              budget: this.budget,
+              nbRoomsDesired: [parseInt(this.roomNumber)],
+              request_date: "2022-06-2 10:30",
+              newsletterAccepted: true,
+            }),
+          };
+          fetch(
+            "https://test-davril.getunlatch.com/api/v1/lead-import/",
+            leadImportOptions
+          )
+            .then(async (response) => {
+              const data = await response.json();
+              this.postError = "";
+              token = "";
+
+              // check for error response
+              if (!response.ok) {
+                // get error message from body or default to response status
+                const error = (data && data.message) || response.status;
+                return Promise.reject(error);
+              }
+            })
+            .catch((error) => {
+              this.errorMessage = error;
+              console.error("There was an error!", error);
+              token = "";
+              this.postError = "Une erreur est survenue";
+            });
         })
         .catch((error) => {
           this.errorMessage = error;
-          console.error("There was an error!", error);
+          console.error("AUTH ERROR", error);
           this.postError = "Une erreur est survenue";
         });
     },
@@ -300,14 +325,8 @@ export default {
       justify-content: space-between;
       align-items: stretch;
       flex-wrap: wrap;
-      gap: 2rem;
-      @supports not (gap: 2rem) {
-        .flex-container {
-          margin: -0.5em;
-        }
-        .flex-container > * {
-          margin: 0.5em;
-        }
+      .inputContainer {
+        margin: 0 1rem 2rem;
       }
     }
 
@@ -334,7 +353,7 @@ export default {
         color: var(--black);
         margin: 0 auto;
         width: 100%;
-        height: 100%;
+        //height: 100%;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
@@ -369,10 +388,14 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 5%;
+      & > :first-child{
+          margin-right: 2rem;
+        }
       & > div {
         display: flex;
         align-items: center;
+
+        
         input,
         label {
           cursor: pointer;
@@ -388,10 +411,11 @@ export default {
       }
     }
     input[type="submit"] {
+      -webkit-appearance: none;
       cursor: pointer;
       margin: 0 auto;
       max-width: 22rem;
-      width: 80%;
+      width: 90%;
       transition: all 0.2s;
       display: block;
       margin-bottom: -1.7rem;
@@ -427,7 +451,10 @@ export default {
         }
       }
       .flex_field {
-        gap: 1rem;
+        .inputContainer {
+            margin: 0 1rem 1rem;
+          
+        }
       }
       input,
       select {
