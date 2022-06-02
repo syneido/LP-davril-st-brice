@@ -82,7 +82,10 @@
 
     <section class="architecture">
       <div class="illustration max_1366 mb_4">
-        <img src="./assets/images/ec1.jpg" alt="illustration intérieur d'appartement" />
+        <img
+          src="./assets/images/ec1.jpg"
+          alt="illustration intérieur d'appartement"
+        />
         <div class="title_container">
           <Title
             primaryTitle="Une architecture élégante"
@@ -96,7 +99,7 @@
         confort.
       </p>
       <div class="card_container max_content_secondary w90 mt_3 mb_1">
-        <div class="card_wrapper mb_2">
+        <div class="card_wrapper">
           <div>
             <img src="./assets/images/visu_arbre.svg" alt="arbre" />
             <p class="p_font20">
@@ -120,18 +123,20 @@
           <div>
             <img src="./assets/images/visu_parking.svg" alt="parking" />
             <p class="p_font20">
-              Parking en<br> sous-sol
+              Parking en<br />
+              sous-sol
             </p>
           </div>
           <div>
             <img src="./assets/images/visu_banc.svg" alt="banc" />
-            <p class="p_font20"> Résidence à<br> taille humaine</p>
+            <p class="p_font20">
+              Résidence à<br />
+              taille humaine
+            </p>
           </div>
           <div>
             <img src="./assets/images/visu_balcon.svg" alt="balcon" />
-            <p class="p_font20">
-              Avec balcon ou <br>terrasse
-            </p>
+            <p class="p_font20">Avec balcon ou <br />terrasse</p>
           </div>
         </div>
       </div>
@@ -426,19 +431,13 @@ export default {
       }
     }
     .card_container {
-      > :first-child {
-        @media #{$max768} {
-          margin-bottom: 1rem;
-        }
-      }
-
       .card_wrapper {
         width: 100%;
         display: flex;
         justify-content: space-between;
-        gap: 2rem;
 
         & > div {
+          margin: 0 1rem 2rem;
           padding: 1rem;
           max-width: 12.5rem;
           width: 100%;
@@ -461,8 +460,8 @@ export default {
         .card_wrapper {
           flex-direction: column;
           align-items: center;
-          gap: 1rem;
           & > div {
+            margin: 0 0 1rem;
             padding: 0 0.5rem 0.5rem;
             max-width: 15rem;
             width: calc(70% - 2rem);
