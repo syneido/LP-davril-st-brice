@@ -218,6 +218,7 @@ export default {
         method: "POST",
         headers: new Headers({
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
         }),
         body: JSON.stringify({
           email: "test@test-davril.getunlatch.com",
@@ -243,7 +244,6 @@ export default {
             headers: new Headers({
               Authorization: "Bearer " + token,
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
             }),
             body: JSON.stringify({
               programIds: [640302757],
@@ -388,14 +388,13 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      & > :first-child{
-          margin-right: 2rem;
-        }
+      & > :first-child {
+        margin-right: 2rem;
+      }
       & > div {
         display: flex;
         align-items: center;
 
-        
         input,
         label {
           cursor: pointer;
@@ -452,8 +451,7 @@ export default {
       }
       .flex_field {
         .inputContainer {
-            margin: 0 1rem 1rem;
-          
+          margin: 0 1rem 1rem;
         }
       }
       input,
