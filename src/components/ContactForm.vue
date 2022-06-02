@@ -213,12 +213,13 @@ export default {
       e.preventDefault();
       if (this.ml != "oui") return;
 
-      let token = "";
+      //let token = "";
       const authOptions = {
         method: "POST",
         headers: new Headers({
           "Content-Type": "application/json",
-          // "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "*",
         }),
         body: JSON.stringify({
           email: "test@test-davril.getunlatch.com",
@@ -227,62 +228,63 @@ export default {
       };
       fetch("https://test-davril.getunlatch.com/api/v1/key/", authOptions)
         .then(async (response) => {
-          const data = await response.json();
-          console.log(data);
-          token = data.token;
-          this.postError = "";
+          // const data = await response.json();
+          // console.log(data);
+          // token = data.token;
+          // this.postError = "";
+           console.log(response);
 
-          // check for error response
-          if (!response.ok) {
-            // get error message from body or default to response status
-            const error = (data && data.message) || response.status;
-            return Promise.reject(error);
-          }
+          // // check for error response
+          // if (!response.ok) {
+          //   // get error message from body or default to response status
+          //   const error = (data && data.message) || response.status;
+          //   return Promise.reject(error);
+          // }
 
-          const leadImportOptions = {
-            method: "POST",
-            headers: new Headers({
-              Authorization: "Bearer " + token,
-              "Content-Type": "application/json",
-            }),
-            body: JSON.stringify({
-              programIds: [640302757],
-              MediaReference: 1867390035,
-              postal_code: this.postalCode,
-              lastname: this.name,
-              firstname: this.firstName,
-              mobile_phone: this.tel,
-              email: this.email,
-              subject: "Contact LP Saint-Brice-Sous-Forêt",
-              origin: "LP Carré Nature",
-              budget: this.budget,
-              nbRoomsDesired: [parseInt(this.roomNumber)],
-              request_date: "2022-06-2 10:30",
-              newsletterAccepted: true,
-            }),
-          };
-          fetch(
-            "https://test-davril.getunlatch.com/api/v1/lead-import/",
-            leadImportOptions
-          )
-            .then(async (response) => {
-              const data = await response.json();
-              this.postError = "";
-              token = "";
+          // const leadImportOptions = {
+          //   method: "POST",
+          //   headers: new Headers({
+          //     Authorization: "Bearer " + token,
+          //     "Content-Type": "application/json",
+          //   }),
+          //   body: JSON.stringify({
+          //     programIds: [640302757],
+          //     MediaReference: 1867390035,
+          //     postal_code: this.postalCode,
+          //     lastname: this.name,
+          //     firstname: this.firstName,
+          //     mobile_phone: this.tel,
+          //     email: this.email,
+          //     subject: "Contact LP Saint-Brice-Sous-Forêt",
+          //     origin: "LP Carré Nature",
+          //     budget: this.budget,
+          //     nbRoomsDesired: [parseInt(this.roomNumber)],
+          //     request_date: "2022-06-2 10:30",
+          //     newsletterAccepted: true,
+          //   }),
+          // };
+          // fetch(
+          //   "https://test-davril.getunlatch.com/api/v1/lead-import/",
+          //   leadImportOptions
+          // )
+          //   .then(async (response) => {
+          //     const data = await response.json();
+          //     this.postError = "";
+          //     token = "";
 
-              // check for error response
-              if (!response.ok) {
-                // get error message from body or default to response status
-                const error = (data && data.message) || response.status;
-                return Promise.reject(error);
-              }
-            })
-            .catch((error) => {
-              this.errorMessage = error;
-              console.error("There was an error!", error);
-              token = "";
-              this.postError = "Une erreur est survenue";
-            });
+          //     // check for error response
+          //     if (!response.ok) {
+          //       // get error message from body or default to response status
+          //       const error = (data && data.message) || response.status;
+          //       return Promise.reject(error);
+          //     }
+          //   })
+          //   .catch((error) => {
+          //     this.errorMessage = error;
+          //     console.error("There was an error!", error);
+          //     token = "";
+          //     this.postError = "Une erreur est survenue";
+          //   });
         })
         .catch((error) => {
           this.errorMessage = error;
