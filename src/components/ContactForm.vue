@@ -13,6 +13,7 @@
     >
       <form @submit="onSubmit">
         <p class="error">{{ postError }}</p>
+
         <div class="flex_field">
           <ValidationProvider
             class="inputContainer"
@@ -148,6 +149,7 @@
           désinscrire à tout moment. Pour en savoir plus, consultez notre
           politique de confidentialité.
         </p>
+        <p class="confirm mb_2">{{ confirmMessage }}</p>
         <input
           :disabled="ml === `non` || invalid ? true : false"
           type="submit"
@@ -206,6 +208,7 @@ export default {
       budget: "Entre 150 000€ et 250 000€",
       ml: "oui",
       postError: "",
+      confirmMessage: "",
     };
   },
   computed: {
@@ -245,8 +248,7 @@ export default {
           const leadImportOptions = {
             method: "POST",
             headers: new Headers({
-              Authorization:
-                "Bearer " + token,
+              Authorization: "Bearer " + token,
               "Content-Type": "application/json",
             }),
             body: JSON.stringify({
@@ -272,6 +274,7 @@ export default {
             .then(async (response) => {
               const data = await response.json();
               this.postError = "";
+              this.confirmMessage = "Votre demande à bien été prise en compte !";
               token = "";
 
               // check for error response
@@ -333,7 +336,8 @@ export default {
         margin: 0 1rem 2rem;
         display: flex;
         flex-direction: column;
-        & > input, select{
+        & > input,
+        select {
           align-self: stretch;
         }
       }
@@ -351,6 +355,10 @@ export default {
       transform: translateX(-50%);
       left: 50%;
       top: -3rem;
+    }
+
+    .confirm {
+      color: var(--primary_color);
     }
 
     .inputContainer {
