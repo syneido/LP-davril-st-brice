@@ -228,11 +228,11 @@ export default {
           "Content-Type": "application/json",
         }),
         body: JSON.stringify({
-          email: "test@test-davril.getunlatch.com",
-          password: "3hey3tbb",
+          email: "api@agencedps.getunlatch.com",
+          password: "7nWi65pZP",
         }),
       };
-      fetch("https://test-davril.getunlatch.com/api/v1/key/", authOptions)
+      fetch("https://davril.legalife.fr/api/v1/key/", authOptions)
         .then(async (response) => {
           const data = await response.json();
           token = data.token;
@@ -252,8 +252,8 @@ export default {
               "Content-Type": "application/json",
             }),
             body: JSON.stringify({
-              programIds: [640302757],
-              MediaReference: 1867390035,
+              programIds: [2089767275],
+              MediaReference: 334382850,
               postal_code: this.postalCode,
               lastname: this.name,
               firstname: this.firstName,
@@ -268,7 +268,7 @@ export default {
             }),
           };
           fetch(
-            "https://test-davril.getunlatch.com/api/v1/lead-import/",
+            "https://davril.legalife.fr/api/v1/lead-import/",
             leadImportOptions
           )
             .then(async (response) => {
