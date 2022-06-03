@@ -274,7 +274,7 @@ export default {
             .then(async (response) => {
               const data = await response.json();
               this.postError = "";
-              this.confirmMessage = "Votre demande à bien été pris en compte !";
+              this.confirmMessage = "Votre demande à bien été prise en compte !";
               token = "";
 
               // check for error response
