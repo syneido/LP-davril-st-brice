@@ -364,7 +364,6 @@ export default {
         color: var(--black);
         margin: 0 auto;
         width: 100%;
-        //height: 100%;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
