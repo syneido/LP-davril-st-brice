@@ -232,10 +232,8 @@ export default {
       fetch("https://test-davril.getunlatch.com/api/v1/key/", authOptions)
         .then(async (response) => {
           const data = await response.json();
-          console.log(data);
           token = data.token;
           this.postError = "";
-          console.log(token);
 
           // check for error response
           if (!response.ok) {
